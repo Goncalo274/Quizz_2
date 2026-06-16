@@ -1,0 +1,502 @@
+/* Importar fontes arredondadas estilo cartoon */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght=700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-image: url('fundo.png.png'); /* Fundo do Menu Principal */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* Contentor Principal do Jogo */
+.game-container {
+    position: static;
+    width: 100%;
+    max-width: 1024px;
+    height: 768px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+/* Título Principal Troti Safe com efeito 3D volumoso */
+.main-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 5.5rem;
+    color: #fffb05;
+    text-transform: uppercase;
+    text-shadow: 
+        0 4px 0 #d4a300,
+        0 8px 0 #b38200,
+        0 12px 0 #1f4287,
+        0 16px 20px rgba(0,0,0,0.4);
+    letter-spacing: 2px;
+    margin-bottom: -10px;
+    z-index: 10;
+    transform: rotate(-2deg);
+}
+
+/* Subtítulo Azul */
+.subtitle-badge {
+    background: linear-gradient(to bottom, #0076f7, #004bb3);
+    color: white;
+    font-family: 'Fredoka One', cursive;
+    padding: 12px 35px;
+    border-radius: 50px;
+    font-size: 1.4rem;
+    border: 4px solid #ffffff;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transform: rotate(1deg);
+    margin-bottom: 25px;
+    z-index: 10;
+}
+
+/* Painel Central Branco/Creme */
+.menu-panel {
+    background-color: #fffbef;
+    border: 8px solid #fcd269;
+    border-radius: 40px;
+    width: 550px;
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: 
+        0 15px 0 #e0b043,
+        0 25px 30px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    z-index: 5;
+}
+
+/* Texto de Boas-vindas */
+.welcome-text {
+    color: #2b4c7e;
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+/* Botão Começar Quiz (Verde 3D) */
+.btn-start {
+    background: linear-gradient(to bottom, #5cd61e, #399608);
+    color: white;
+    font-family: 'Fredoka One', cursive;
+    font-size: 2.2rem;
+    padding: 18px 50px;
+    border: 4px solid #ffffff;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 
+        0 8px 0 #236103,
+        0 15px 20px rgba(0,0,0,0.3);
+    transition: all 0.1s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    text-transform: uppercase;
+    width: 100%;
+    max-width: 440px;
+}
+
+.btn-start:hover {
+    transform: translateY(2px);
+    box-shadow: 
+        0 6px 0 #236103,
+        0 10px 15px rgba(0,0,0,0.3);
+}
+
+.btn-start:active {
+    transform: translateY(8px);
+    box-shadow: 0 0px 0 #236103;
+}
+
+.btn-start::after {
+    content: '⭐';
+    font-size: 2rem;
+    filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));
+}
+
+/* Barra de Informações Inferior */
+.info-bar {
+    background-color: white;
+    border-radius: 50px;
+    padding: 12px 30px;
+    display: flex;
+    gap: 30px;
+    box-shadow: 0 8px 0 #e6e6e6, 0 15px 20px rgba(0,0,0,0.1);
+    margin-top: 30px;
+    z-index: 5;
+}
+
+.info-tag {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #2b4c7e;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.icon-purple { color: #8a4fff; font-size: 1.3rem; }
+.icon-orange { color: #ff9f43; font-size: 1.3rem; }
+.icon-green { color: #2ecc71; font-size: 1.3rem; }
+
+/* Botão de Definições (Estilo Reaproveitável) */
+.btn-settings {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 2.5rem;
+    background: #0a35c4e0;
+    border: 4px solid white;
+    border-radius: 15px;
+    cursor: pointer;
+    padding: 5px 10px;
+    box-shadow: 0 5px 0 #5f30bf, 0 10px 15px rgba(0,0,0,0.2);
+    z-index: 20;
+    transition: transform 0.1s;
+}
+
+.btn-settings:active {
+    transform: translateY(4px);
+    box-shadow: 0 1px 0 #5f30bf;
+}
+
+/* Fundo escurecido da Mini Aba */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Caixa da Mini Aba (Design estilo Cartoon) */
+.modal-content {
+    background-color: #fffbef;
+    border: 6px solid #fcd269;
+    border-radius: 30px;
+    width: 380px;
+    height: auto;
+    min-height: 300px;
+    padding: 45px 25px 35px 25px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 15px 0 #e0b043, 0 20px 25px rgba(0,0,0,0.3);
+}
+
+.modal-content h2 {
+    font-family: 'Fredoka One', cursive;
+    color: #2b4c7e;
+    margin-bottom: 25px;
+    font-size: 2rem;
+}
+
+/* Botão Fechar (X) */
+.close-modal {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background: #f1eded;
+    border: 3px solid rgb(240, 7, 7);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 0 #cf2131;
+}
+
+/* Itens de Opção (Volume, Música, Info) */
+.modal-options {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.option-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    border: 2px solid #e6e6e6;
+    font-weight: bold;
+    color: #2b4c7e;
+}
+
+/* Botão Info */
+.btn-info-action {
+    background: #717172;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Switch (Botão Liga/Desliga da Música) */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+}
+.switch input { display:none; }
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px; width: 18px;
+    left: 4px; bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+input:checked + .slider { background-color: #5cd61e; }
+input:checked + .slider:before { transform: translateX(24px); }
+
+/* Barra de Volume */
+.volume-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 140px;
+    height: 12px;
+    background: #e6e6e6;
+    border-radius: 10px;
+    outline: none;
+    border: 2px solid #bce7fc;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: linear-gradient(to bottom, #ff9f43, #ff3f3f);
+    border: 3px solid white;
+    box-shadow: 0 4px 5px rgba(0,0,0,0.2), inset 0 -2px 0 rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+
+.volume-slider::-webkit-slider-thumb:hover { transform: scale(1.15); }
+
+.volume-slider::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: linear-gradient(to bottom, #ff9f43, #ff793f);
+    border: 3px solid white;
+    box-shadow: 0 4px 5px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+.volume-slider::-moz-range-thumb:hover { transform: scale(1.15); }
+
+/* ==========================================================================
+   ESTILOS ADICIONADOS PARA O ECRÃ DO QUIZ (INTEGRADO COM FUNDO2.PNG.PNG)
+   ========================================================================== */
+.quiz-screen {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('fundo2.png.png'); /* Usa a imagem com as caixas brancas */
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Forçar a engrenagem a alinhar no ecrã total do quiz de forma fixa */
+.quiz-screen .persistent-settings {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 20;
+}
+
+/* Ajusta o texto perfeitamente centralizado na prancheta branca maior */
+.main-question-box {
+    position: absolute;
+    top: 43%;
+    left: 48.5%;
+    transform: translate(-50%, -50%);
+    width: 42%;
+    text-align: center;
+    z-index: 5;
+}
+
+.question-phrase {
+    font-size: 1.6rem;
+    color: #2b4c7e; /* Azul a condizer com o teu estilo */
+    font-weight: 700;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* Alinha o contentor invisível sobre as 3 caixas inferiores da imagem */
+.kids-options-container {
+    position: absolute;
+    bottom: 60px; /* Ajusta para alinhar com as caixas brancas inferiores */
+    left: 50%;
+    transform: translateX(-50%);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 200px;
+    width: 98%;
+    max-width: 1350px;
+    z-index: 5;
+}
+
+/* Botões de cliques transparentes posicionados sobre a imagem */
+.kid-option-card {
+    background: transparent;
+    border: none;
+    outline: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    min-height: 175px;
+    transition: transform 0.2s ease;
+}
+
+/* Efeito animado infantil ao passar o rato pelas caixas de opções */
+.kid-option-card:hover {
+    transform: scale(1.05);
+}
+
+/* Estilo do texto das respostas infantis */
+.option-text-kids {
+    font-size: 1.3rem;
+    color: #2b4c7e;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 15px; /* Empurra o texto para baixo para não tapar as bolas 1, 2, 3 */
+    line-height: 2.3px;
+    padding: 0 10px;
+}
+
+/* ==========================================================================
+   ANIMAÇÕES DE FLASH (CERTO / ERRADO)
+   ========================================================================== */
+
+/* Classe que o JavaScript vai meter quando a criança ACERTAR */
+.flash-correct {
+    animation: flashGreen 0.6s ease-in-out;
+}
+
+/* Classe que o JavaScript vai meter quando a criança ERRAR */
+.flash-wrong {
+    animation: flashRed 0.6s ease-in-out;
+}
+
+/* Animação do Flash Verde */
+@keyframes flashGreen {
+    0% { background-color: transparent; }
+    30% { background-color: rgba(46, 204, 113, 0.6); box-shadow: 0 0 20px #2ecc71; }
+    70% { background-color: rgba(46, 204, 113, 0.6); box-shadow: 0 0 20px #2ecc71; }
+    100% { background-color: transparent; }
+}
+
+/* Animação do Flash Vermelho */
+@keyframes flashRed {
+    0% { background-color: transparent; }
+    30% { background-color: rgba(231, 76, 60, 0.6); box-shadow: 0 0 20px #e74c3c; }
+    70% { background-color: rgba(231, 76, 60, 0.6); box-shadow: 0 0 20px #e74c3c; }
+    100% { background-color: transparent; }
+}
+
+/* Pequeno ajuste para o flash ficar bonito nos cantos dos teus quadrados */
+.kid-option-card {
+    border-radius: 20px; /* Faz o flash acompanhar a curvatura das caixas do desenho */
+}
+/* Esta caixa invisível vai ter exatamente a mesma proporção da tua imagem de fundo */
+.quiz-content-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1024px; /* O mesmo tamanho máximo do teu menu principal */
+    height: 768px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Garante que o texto dentro dos botões respira bem ao mudar de pergunta */
+.option-text-kids {
+    font-size: 1.2rem;
+    color: #2b4c7e;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.4;       /* Dá espaço entre as linhas para não se atropelarem */
+    padding: 10px;
+    word-wrap: break-word;  /* Força as palavras compridas a irem para a linha de baixo */
+    display: block;
+    width: 100%;
+}
+
+/* Estilo exclusivo para o Ecrã Final */
+.result-screen-final {
+    display: none; /* Controlado pelo JS */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+}

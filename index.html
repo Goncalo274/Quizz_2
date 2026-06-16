@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Troti Safe - Menu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body> 
+
+    <div class="game-container" id="menuContainer">
+        <button class="btn-settings" id="settingsBtn">⚙️</button>
+
+        <h1 class="main-title">Troti Safe</h1>
+        <div class="subtitle-badge">Segurança na Trotinete e Rodoviária</div>
+        <div class="menu-panel">
+            <div class="welcome-text">
+                🏆 Aprende. Diverte-te.<br>
+                Torna-te um herói da segurança!
+            </div>
+            <button class="btn-start" id="startBtn">Começar Quiz</button>
+        </div>
+        <div class="info-bar">
+            <div class="info-tag"><span class="icon-purple">👥</span> 6 a 10 anos</div>
+            <div class="info-tag"><span class="icon-orange">⭐</span> Divertido</div>
+            <div class="info-tag"><span class="icon-green">✔</span> Educativo</div>
+        </div>
+    </div>
+
+    <div class="quiz-screen" id="quizContainer" style="display: none;">
+        <button class="btn-settings persistent-settings" id="quizSettingsBtn">⚙️</button>
+
+        <div class="main-question-box">
+            <p class="question-phrase">Por que deves usar capacete quando andas de bicicleta ou trotinete?</p>
+        </div>
+
+        <div class="kids-options-container">
+            <button class="kid-option-card" id="option1">
+                <p class="option-text-kids">Porque fica bonito.</p>
+            </button>
+            
+            <button class="kid-option-card" id="option2">
+                <p class="option-text-kids">Para andar mais depressa.</p>
+            </button>
+            
+            <button class="kid-option-card" id="option3">
+                <p class="option-text-kids">Para proteger a cabeça.</p>
+            </button>
+        </div>
+    </div>
+
+   <div class="result-screen-final" id="resultContainer" style="display: none;">
+        <h1 class="main-title">Fim do Quiz! 🏆</h1>
+        <div class="menu-panel">
+            <div class="welcome-text" style="font-size: 1.6rem; line-height: 2;">
+                <p>🎉 Parabéns por chegares ao fim!</p>
+                <p style="color: #2ecc71;">✅ Acertos: <span id="totalAcertos">0</span></p>
+                <p style="color: #e74c3c;">❌ Erros: <span id="totalErros">0</span></p>
+            </div>
+            <button class="btn-start" id="restartBtn">Jogar Novamente</button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="settingsModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModalBtn">❌</button>
+            <h2>Definições</h2>
+            <div class="modal-options">
+                <div class="option-item">
+                    <span>🔈 Volume</span>
+                    <input type="range" min="0" max="100" value="50" class="volume-slider">
+                </div>
+                <div class="option-item">
+                    <span>🎵 Música</span>
+                    <label class="switch">
+                        <input type="checkbox" id="musicaSwitch">
+                        <span class="slider"></span>    
+                    </label>
+                </div>
+                <div class="option-item">
+                    <span>ℹ️ Info</span>
+                    <button class="btn-info-action" id="infoBtn">Ver</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="infoModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeInfoBtn">❌</button>
+            <h2>Quiz criado por:</h2>
+            <div style="font-size: 1.4rem; line-height: 1.8; font-weight: bold; color: #2b4c7e; text-align: center; font-family: 'Quicksand', sans-serif;">
+                <p>Gonçalo Couto</p>
+                <p>Gustavo Marinho</p>
+                <p>Afonso Franco</p>
+                <p>Guilherme Vieira</p>
+                <p>Ivo Castro</p>
+            </div>
+        </div>
+    </div>
+
+    <audio id="bgMusic" loop>
+        <source src="musica.mp3.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
